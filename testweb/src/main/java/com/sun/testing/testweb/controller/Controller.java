@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.testing.testweb.business.IBusinessService;
-import com.sun.testing.testweb.common.request.ServiceRequest;
-import com.sun.testing.testweb.common.response.ServiceResponse;
+import com.sun.testing.testweb.common.request.PageRequest;
+import com.sun.testing.testweb.common.response.PageResponse;
 
-@RequestMapping(value = "/service")
+@RequestMapping(value = "/page")
 public class Controller {
 
 	private IBusinessService businessService;
@@ -21,15 +21,15 @@ public class Controller {
 		this.businessService = businessService;
 	}
 
-	@RequestMapping(value = "/getService", method = RequestMethod.GET)
+	@RequestMapping(value = "/getPageList", method = RequestMethod.GET)
 	@ResponseBody
-	public ServiceResponse getService(HttpServletRequest request, HttpServletResponse responset) {
-		System.out.print("service get");
-		ServiceRequest serviceRequest = new ServiceRequest();
-		serviceRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("serviceName")));
-		serviceRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("servicePath")));
-		ServiceResponse serviceResponse = null;
-		serviceResponse = businessService.getService(serviceRequest);
-		return serviceResponse;
+	public PageResponse getPageList(HttpServletRequest request, HttpServletResponse responset) {
+		System.out.println("get page list");
+		PageRequest pageRequest = new PageRequest();
+		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
+		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
+		PageResponse pageResponse = null;
+		pageResponse = businessService.getPageList(pageRequest);
+		return pageResponse;
 	}
 }

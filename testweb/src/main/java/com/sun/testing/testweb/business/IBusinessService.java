@@ -1,10 +1,10 @@
 package com.sun.testing.testweb.business;
 
-import com.sun.testing.testweb.common.request.ServiceRequest;
-import com.sun.testing.testweb.common.response.ServiceResponse;
+import com.sun.testing.testweb.common.request.PageRequest;
+import com.sun.testing.testweb.common.response.PageResponse;
 
 public interface IBusinessService {
 
-	ServiceResponse getService(final ServiceRequest loginRequest);
+	PageResponse getPageList(final PageRequest pageRequest);
 	
 }

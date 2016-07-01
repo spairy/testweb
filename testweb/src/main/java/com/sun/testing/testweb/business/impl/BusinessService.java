@@ -1,8 +1,8 @@
 package com.sun.testing.testweb.business.impl;
 
 import com.sun.testing.testweb.business.IBusinessService;
-import com.sun.testing.testweb.common.request.ServiceRequest;
-import com.sun.testing.testweb.common.response.ServiceResponse;
+import com.sun.testing.testweb.common.request.PageRequest;
+import com.sun.testing.testweb.common.response.PageResponse;
 import com.sun.testing.testweb.database.IDataService;
 
 public class BusinessService implements IBusinessService {
@@ -14,11 +14,11 @@ public class BusinessService implements IBusinessService {
 	}
 
 	@Override
-	public ServiceResponse getService(ServiceRequest serviceRequest) {
+	public PageResponse getPageList(PageRequest pageRequest) {
 		
-		ServiceResponse ServiceResponse = dataService.getService(serviceRequest);
+		PageResponse pageResponse = dataService.getPageList(pageRequest);
 		
-		return ServiceResponse;
+		return pageResponse;
 	}
 
 }

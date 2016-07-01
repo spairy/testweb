@@ -5,11 +5,11 @@ $(document).ready(function(){
 function indexInit() {
     $.ajax({
         type: 'GET',
-        url: '/testweb/service/getService.do?serviceName=name1',
+        url: '/testweb/page/getPageList.do?pageName=homepage',
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
-            
+            alert(data.pageList[0].path);
         },
         complete: function() {
 

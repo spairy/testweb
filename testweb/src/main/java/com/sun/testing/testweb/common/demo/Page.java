@@ -1,6 +1,6 @@
 package com.sun.testing.testweb.common.demo;
 
-public class Service {
+public class Page {
 
 	private String name;
 	

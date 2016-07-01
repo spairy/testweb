@@ -2,7 +2,7 @@ package com.sun.testing.testweb.common.request;
 
 import java.io.Serializable;
 
-public class ServiceRequest implements Serializable {
+public class PageRequest implements Serializable {
 
 	private static final long serialVersionUID = 8061338472070163771L;
 

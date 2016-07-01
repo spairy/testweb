@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.sun.testing.testweb.common.demo.Service;
-import com.sun.testing.testweb.common.request.ServiceRequest;
-import com.sun.testing.testweb.common.response.ServiceResponse;
+import com.sun.testing.testweb.common.demo.Page;
+import com.sun.testing.testweb.common.request.PageRequest;
+import com.sun.testing.testweb.common.response.PageResponse;
 import com.sun.testing.testweb.database.IDataService;
-import com.sun.testing.testweb.database.mapper.ServiceMapper;
+import com.sun.testing.testweb.database.mapper.PageMapper;
 
 public class DataService implements IDataService {
 
@@ -19,13 +19,13 @@ public class DataService implements IDataService {
 	}
 	
 	@Override
-	public ServiceResponse getService(ServiceRequest serviceRequest) {
-		ServiceResponse serviceResponse = new ServiceResponse();
-		List<Service> userInfoList = 
-				jdbcTemplate.query("select * from service where name = ?", 
-						new Object[]{serviceRequest.getServiceName()}, new ServiceMapper());
-		serviceResponse.setServiceList(userInfoList);
-		return serviceResponse;
+	public PageResponse getPageList(PageRequest pageRequest) {
+		PageResponse pageResponse = new PageResponse();
+		List<Page> pageList = 
+				jdbcTemplate.query("select * from page where name = ?", 
+						new Object[]{pageRequest.getServiceName()}, new PageMapper());
+		pageResponse.setPageList(pageList);
+		return pageResponse;
 	}
 
 }

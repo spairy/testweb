@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS `field` (
   `fieldtype_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `rule_id` varchar(50) NOT NULL,
-  `remark` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -34,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `field` (
 CREATE TABLE IF NOT EXISTS `fieldtype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
-  `remark` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -61,13 +59,10 @@ INSERT INTO `page` (`id`, `name`, `path`) VALUES
 -- Dumping structure for table testweb.pagefield
 CREATE TABLE IF NOT EXISTS `pagefield` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pagelist_id` int(11) NOT NULL DEFAULT '0',
-  `order` int(11) NOT NULL DEFAULT '0',
+  `page_id` int(11) NOT NULL DEFAULT '0',
   `xpath` varchar(255) NOT NULL DEFAULT '0',
   `field_id` varchar(50) NOT NULL DEFAULT '0',
-  `value` varchar(50) NOT NULL DEFAULT '0',
-  `variable` varchar(50) NOT NULL DEFAULT '0',
-  `remark` varchar(255) NOT NULL DEFAULT '0',
+  `page_rule_id` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -91,6 +86,8 @@ CREATE TABLE IF NOT EXISTS `rule` (
 -- Dumping structure for table testweb.value
 CREATE TABLE IF NOT EXISTS `value` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) NOT NULL DEFAULT '0',
+  `value` varchar(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -100,3 +97,12 @@ CREATE TABLE IF NOT EXISTS `value` (
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+CREATE TABLE IF NOT EXISTS `error` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value_id` int(11) NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL DEFAULT '0',
+  `xpath` varchar(255) NOT NULL DEFAULT '0',
+  `error` varchar(255) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -4,13 +4,17 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.sun.testing.testweb.common.demo.Case;
 import com.sun.testing.testweb.common.demo.Field;
 import com.sun.testing.testweb.common.demo.Page;
+import com.sun.testing.testweb.common.demo.Result;
 import com.sun.testing.testweb.common.request.PageRequest;
 import com.sun.testing.testweb.common.request.Request;
 import com.sun.testing.testweb.common.response.PageResponse;
 import com.sun.testing.testweb.common.response.Response;
 import com.sun.testing.testweb.database.IDataService;
+import com.sun.testing.testweb.database.mapper.CaseMapper;
+import com.sun.testing.testweb.database.mapper.ResultMapper;
 import com.sun.testing.testweb.database.mapper.FieldMapper;
 import com.sun.testing.testweb.database.mapper.PageMapper;
 
@@ -86,8 +90,12 @@ public class DataService implements IDataService {
 
 	@Override
 	public Response getValues(Request request) {
-		// TODO Auto-generated method stub
-		return null;
+		Response response = new Response();
+		List<Result> resultList = 
+				jdbcTemplate.query("select * from error", 
+						new Object[]{}, new ResultMapper());
+		response.setResultList(resultList);
+		return response;
 	}
 
 	@Override
@@ -103,27 +111,35 @@ public class DataService implements IDataService {
 	}
 
 	@Override
-	public Response getErrors(Request request) {
+	public Response getResults(Request request) {
+		Response response = new Response();
+		List<Result> resultList = 
+				jdbcTemplate.query("select * from error", 
+						new Object[]{}, new ResultMapper());
+		response.setResultList(resultList);
+		return response;
+	}
+
+	@Override
+	public Response insertResult(Request request) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Response insertError(Request request) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Response updateError(Request request) {
+	public Response updateResult(Request request) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Response getCases(Request request) {
-		// TODO Auto-generated method stub
-		return null;
+		Response response = new Response();
+		List<Case> caseList = 
+				jdbcTemplate.query("select * from case", 
+						new Object[]{}, new CaseMapper());
+		response.setCaseList(caseList);
+		return response;
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public interface IDataService {
 
 	PageResponse getPageList(PageRequest pageRequest);
 	
-PageResponse insertPageList(final PageRequest pageRequest);
+	PageResponse insertPageList(final PageRequest pageRequest);
 	
 	PageResponse updatePageList(final PageRequest pageRequest);
 	
@@ -39,11 +39,11 @@ PageResponse insertPageList(final PageRequest pageRequest);
 	
 	
 	
-	Response getErrors(final Request request);
+	Response getResults(final Request request);
 	
-	Response insertError(final Request request);
+	Response insertResult(final Request request);
 	
-	Response updateError(final Request request);
+	Response updateResult(final Request request);
 	
 	
 	

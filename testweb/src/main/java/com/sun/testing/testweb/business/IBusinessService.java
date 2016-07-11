@@ -39,11 +39,11 @@ public interface IBusinessService {
 	
 	
 	
-	Response getErrors(final Request request);
+	Response getResults(final Request request);
 	
-	Response insertError(final Request request);
+	Response insertResult(final Request request);
 	
-	Response updateError(final Request request);
+	Response updateResult(final Request request);
 	
 	
 	

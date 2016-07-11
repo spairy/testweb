@@ -90,19 +90,19 @@ public class BusinessService implements IBusinessService {
 	}
 
 	@Override
-	public Response getErrors(Request request) {
+	public Response getResults(Request request) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Response insertError(Request request) {
+	public Response insertResult(Request request) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Response updateError(Request request) {
+	public Response updateResult(Request request) {
 		// TODO Auto-generated method stub
 		return null;
 	}

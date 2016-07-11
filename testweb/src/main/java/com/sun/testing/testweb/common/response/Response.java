@@ -2,9 +2,12 @@ package com.sun.testing.testweb.common.response;
 
 import java.util.List;
 
+import com.sun.testing.testweb.common.demo.Case;
 import com.sun.testing.testweb.common.demo.Field;
 import com.sun.testing.testweb.common.demo.Page;
 import com.sun.testing.testweb.common.demo.PageField;
+import com.sun.testing.testweb.common.demo.Value;
+import com.sun.testing.testweb.common.demo.Result;
 
 public class Response extends BaseResponse {
 	
@@ -15,6 +18,12 @@ public class Response extends BaseResponse {
 	private List<Field> fieldList;
 	
 	private List<PageField> pageFieldList;
+	
+	private List<Result> resultList;
+
+	private List<Value> valueList;
+	
+	private List<Case> caseList;
 	
 	public List<Page> getPageList() {
 		return pageList;
@@ -39,5 +48,28 @@ public class Response extends BaseResponse {
 	public void setPageFieldList(List<PageField> pageFieldList) {
 		this.pageFieldList = pageFieldList;
 	}
-	
+
+	public List<Result> getResultList() {
+		return resultList;
+	}
+
+	public void setResultList(List<Result> resultList) {
+		this.resultList = resultList;
+	}
+
+	public List<Value> getValueList() {
+		return valueList;
+	}
+
+	public void setValueList(List<Value> valueList) {
+		this.valueList = valueList;
+	}
+
+	public List<Case> getCaseList() {
+		return caseList;
+	}
+
+	public void setCaseList(List<Case> caseList) {
+		this.caseList = caseList;
+	}
 }

@@ -1,10 +1,7 @@
-package com.sun.testing.testweb.common.request;
+package com.sun.testing.testweb.common.demo;
 
-import java.io.Serializable;
 
-public class Request implements Serializable {
-
-	private static final long serialVersionUID = -7940423319041656374L;
+public class Value {
 
 	private String id;
 	
@@ -35,6 +32,4 @@ public class Request implements Serializable {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	
 }

@@ -31,7 +31,23 @@
     <bean name="/field/*" class="com.sun.testing.testweb.controller.FieldController" >
         <property name="businessService" ref="businessService" />
     </bean>
-
+    
+    <bean name="/pageField/*" class="com.sun.testing.testweb.controller.PageFieldController" >
+        <property name="businessService" ref="businessService" />
+    </bean>
+    
+    <bean name="/result/*" class="com.sun.testing.testweb.controller.ResultController" >
+        <property name="businessService" ref="businessService" />
+    </bean>
+    
+    <bean name="/value/*" class="com.sun.testing.testweb.controller.ValueController" >
+        <property name="businessService" ref="businessService" />
+    </bean>
+    
+    <bean name="/case/*" class="com.sun.testing.testweb.controller.CaseController" >
+        <property name="businessService" ref="businessService" />
+    </bean>
+    
     <bean id="businessService" class="com.sun.testing.testweb.business.impl.BusinessService" >
         <property name="dataService" ref="dataService" />
     </bean>

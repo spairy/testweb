@@ -12,6 +12,7 @@ public class PageMapper implements RowMapper<Page> {
 	@Override
 	public Page mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Page page = new Page();
+		page.setId(rs.getString("id"));
 		page.setName(rs.getString("name"));
 		page.setPath(rs.getString("path"));
 		return page;

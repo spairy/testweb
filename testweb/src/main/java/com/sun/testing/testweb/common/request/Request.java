@@ -11,6 +11,20 @@ public class Request implements Serializable {
 	private String fieldID;
 	
 	private String value;
+	
+	private String caseID;
+	
+	private String caseName;
+	
+	private String caseRemark;
+
+	public String getCaseID() {
+		return caseID;
+	}
+
+	public void setCaseID(String caseID) {
+		this.caseID = caseID;
+	}
 
 	public String getId() {
 		return id;
@@ -35,6 +49,20 @@ public class Request implements Serializable {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	
+
+	public String getCaseName() {
+		return caseName;
+	}
+
+	public void setCaseName(String caseName) {
+		this.caseName = caseName;
+	}
+
+	public String getCaseRemark() {
+		return caseRemark;
+	}
+
+	public void setCaseRemark(String caseRemark) {
+		this.caseRemark = caseRemark;
+	}
 }

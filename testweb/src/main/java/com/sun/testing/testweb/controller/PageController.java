@@ -21,19 +21,19 @@ public class PageController {
 		this.businessService = businessService;
 	}
 
-	@RequestMapping(value = "/getPageList", method = RequestMethod.GET)
+	@RequestMapping(value = "/getPages", method = RequestMethod.GET)
 	@ResponseBody
-	public PageResponse getPageList(HttpServletRequest request, HttpServletResponse responset) {
+	public PageResponse getPages(HttpServletRequest request, HttpServletResponse responset) {
 		System.out.println("get page list");
 		PageRequest pageRequest = new PageRequest();
-		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
-		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
+		//pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
+		//pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
-	@RequestMapping(value = "/insertPageList", method = RequestMethod.POST)
+	@RequestMapping(value = "/insertPage", method = RequestMethod.POST)
 	@ResponseBody
 	public PageResponse insertPageList(HttpServletRequest request, HttpServletResponse responset) {
 		System.out.println("insert page list");
@@ -41,11 +41,11 @@ public class PageController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
-	@RequestMapping(value = "/updatePageList", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatePage", method = RequestMethod.POST)
 	@ResponseBody
 	public PageResponse updatePageList(HttpServletRequest request, HttpServletResponse responset) {
 		System.out.println("update page list");
@@ -53,19 +53,8 @@ public class PageController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
-	@RequestMapping(value = "/getField", method = RequestMethod.GET)
-	@ResponseBody
-	public PageResponse getAllField(HttpServletRequest request, HttpServletResponse responset) {
-		System.out.println("get all field");
-		PageRequest pageRequest = new PageRequest();
-		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
-		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
-		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
-		return pageResponse;
-	}
 }

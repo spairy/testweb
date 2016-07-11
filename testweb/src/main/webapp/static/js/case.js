@@ -1,15 +1,15 @@
 $(document).ready(function(){
-    indexInit();
+	caseInit();
 });
 
-function indexInit() {
+function caseInit() {
     $.ajax({
         type: 'GET',
-        url: '/testweb/page/getPages.do?pageName=homepage',
+        url: '/testweb/case/getCases.do',
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
-            alert(data.pageList[0].path);
+            alert(data.caseList[0].name);
         },
         complete: function() {
 

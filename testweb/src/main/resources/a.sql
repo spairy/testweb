@@ -18,13 +18,23 @@ USE `testweb`;
 -- Dumping structure for table testweb.case
 DROP TABLE IF EXISTS `case`;
 CREATE TABLE IF NOT EXISTS `case` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL DEFAULT '',
-  `order` varchar(50) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `remark` varchar(50) NOT NULL DEFAULT '',
+  `status` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testweb.case: ~0 rows (approximately)
+-- Dumping data for table testweb.case: ~5 rows (approximately)
 DELETE FROM `case`;
 /*!40000 ALTER TABLE `case` DISABLE KEYS */;
+INSERT INTO `case` (`id`, `page_id`, `name`, `remark`, `status`) VALUES
+	(1, 1, 'homepage normal', 'normal test', ''),
+	(2, 1, 'homepage error', 'error test', ''),
+	(3, 2, 'insert field', 'normal', ''),
+	(4, 3, 'insert value', 'normal', ''),
+	(5, 4, 'insert rule', 'normal', '');
 /*!40000 ALTER TABLE `case` ENABLE KEYS */;
 
 
@@ -35,15 +45,17 @@ CREATE TABLE IF NOT EXISTS `field` (
   `type` char(1) NOT NULL DEFAULT '',
   `name` varchar(50) NOT NULL DEFAULT '',
   `rules` varchar(50) NOT NULL DEFAULT '',
+  `remark` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testweb.field: ~0 rows (approximately)
+-- Dumping data for table testweb.field: ~3 rows (approximately)
 DELETE FROM `field`;
 /*!40000 ALTER TABLE `field` DISABLE KEYS */;
-INSERT INTO `field` (`id`, `type`, `name`, `rules`) VALUES
-	(1, 'T', 'familyName', 'length(50)'),
-	(2, 'T', 'givenName', 'length(50)');
+INSERT INTO `field` (`id`, `type`, `name`, `rules`, `remark`) VALUES
+	(1, 'T', 'familyName', 'length(50)', ''),
+	(2, 'T', 'givenName', 'length(50)', ''),
+	(3, 'B', 'button', '', '');
 /*!40000 ALTER TABLE `field` ENABLE KEYS */;
 
 
@@ -54,13 +66,17 @@ CREATE TABLE IF NOT EXISTS `page` (
   `name` varchar(50) NOT NULL DEFAULT '',
   `path` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testweb.page: ~0 rows (approximately)
+-- Dumping data for table testweb.page: ~5 rows (approximately)
 DELETE FROM `page`;
 /*!40000 ALTER TABLE `page` DISABLE KEYS */;
 INSERT INTO `page` (`id`, `name`, `path`) VALUES
-	(1, 'homepage', 'https://www.cathaypacific.com/cx/en_HK.html');
+	(1, 'homepage', 'http://lcoalhost:8080/testweb/index.html'),
+	(2, 'casepage', 'http://localhost:8080/testweb/pages/case.html'),
+	(3, 'steplpage', 'http://localhost:8080/testweb/pages/step.html'),
+	(4, 'valuepage', 'http://localhost:8080/testweb/pages/value.html'),
+	(5, 'rulepage', 'http://localhost:8080/testweb/pages/rule.html');
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 
 
@@ -73,14 +89,15 @@ CREATE TABLE IF NOT EXISTS `pagefield` (
   `field_id` varchar(50) NOT NULL DEFAULT '',
   `page_rules` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table testweb.pagefield: ~2 rows (approximately)
+-- Dumping data for table testweb.pagefield: ~3 rows (approximately)
 DELETE FROM `pagefield`;
 /*!40000 ALTER TABLE `pagefield` DISABLE KEYS */;
 INSERT INTO `pagefield` (`id`, `page_id`, `xpath`, `field_id`, `page_rules`) VALUES
 	(1, 1, '//*[@id="familyName"]', '1', ''),
-	(2, 1, '//*[@id="givenName"]', '2', '');
+	(2, 1, '//*[@id="givenName"]', '2', ''),
+	(3, 1, '//*[@id="button"]', '3', '');
 /*!40000 ALTER TABLE `pagefield` ENABLE KEYS */;
 
 
@@ -119,6 +136,25 @@ INSERT INTO `rule` (`id`, `name`, `remark`) VALUES
 	(1, 'length(int)', 'length >= 0 && length <= int'),
 	(2, 'length(int0, int1)', 'length >= int0 && length <= int1');
 /*!40000 ALTER TABLE `rule` ENABLE KEYS */;
+
+
+-- Dumping structure for table testweb.step
+DROP TABLE IF EXISTS `step`;
+CREATE TABLE IF NOT EXISTS `step` (
+  `case_id` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
+  `pagefield_id` int(11) NOT NULL DEFAULT '0',
+  `value_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table testweb.step: ~3 rows (approximately)
+DELETE FROM `step`;
+/*!40000 ALTER TABLE `step` DISABLE KEYS */;
+INSERT INTO `step` (`case_id`, `order`, `pagefield_id`, `value_id`) VALUES
+	(1, 1, 1, 1),
+	(1, 2, 2, 2),
+	(1, 3, 3, 0);
+/*!40000 ALTER TABLE `step` ENABLE KEYS */;
 
 
 -- Dumping structure for table testweb.value

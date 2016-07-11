@@ -7,49 +7,49 @@ import com.sun.testing.testweb.common.response.Response;
 
 public interface IDataService {
 
-	PageResponse getPageList(PageRequest pageRequest);
+	PageResponse getPages(PageRequest pageRequest)throws Exception;
 	
-	PageResponse insertPageList(final PageRequest pageRequest);
+	PageResponse insertPage(final PageRequest pageRequest)throws Exception;
 	
-	PageResponse updatePageList(final PageRequest pageRequest);
-	
-	
-	
-	Response getFields(final Request request);
-	
-	Response insertField(final Request request);
-	
-	Response updateField(final Request request);
+	PageResponse updatePage(final PageRequest pageRequest)throws Exception;
 	
 	
 	
-	Response getPageFields(final Request request);
+	Response getFields(final Request request)throws Exception;
 	
-	Response insertPageField(final Request request);
+	Response insertField(final Request request)throws Exception;
 	
-	Response updatePageField(final Request request);
-	
-	
-	
-	Response getValues(final Request request);
-	
-	Response insertValue(final Request request);
-	
-	Response updateValue(final Request request);
+	Response updateField(final Request request)throws Exception;
 	
 	
 	
-	Response getResults(final Request request);
+	Response getPageFields(final Request request)throws Exception;
 	
-	Response insertResult(final Request request);
+	Response insertPageField(final Request request)throws Exception;
 	
-	Response updateResult(final Request request);
+	Response updatePageField(final Request request)throws Exception;
 	
 	
 	
-	Response getCases(final Request request);
+	Response getValues(final Request request)throws Exception;
 	
-	Response insertCase(final Request request);
+	Response insertValue(final Request request)throws Exception;
 	
-	Response updateCase(final Request request);
+	Response updateValue(final Request request)throws Exception;
+	
+	
+	
+	Response getResults(final Request request)throws Exception;
+	
+	Response insertResult(final Request request)throws Exception;
+	
+	Response updateResult(final Request request)throws Exception;
+	
+	
+	
+	Response getCases(final Request request)throws Exception;
+	
+	Response insertCase(final Request request) throws Exception;
+	
+	Response updateCase(final Request request) throws Exception;
 }

@@ -7,11 +7,11 @@ import com.sun.testing.testweb.common.response.Response;
 
 public interface IBusinessService {
 
-	PageResponse getPageList(final PageRequest pageRequest);
+	PageResponse getPages(final PageRequest pageRequest);
 	
-	PageResponse insertPageList(final PageRequest pageRequest);
+	PageResponse insertPage(final PageRequest pageRequest);
 	
-	PageResponse updatePageList(final PageRequest pageRequest);
+	PageResponse updatePage(final PageRequest pageRequest);
 	
 	
 	

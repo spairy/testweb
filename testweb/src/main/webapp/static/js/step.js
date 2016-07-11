@@ -1,12 +1,14 @@
 $(document).ready(function(){
-    pageInit();
+    stepInit();
     
 });
 
-function pageInit() {
+function stepInit() {
+	var thisURL = document.URL;    
+	var pageID = thisURL.split('?')[1];
     $.ajax({
         type: 'GET',
-        url: '/testweb/page/getPages.do',
+        url: '/testweb/step/getSteps.do?pageID=' + pageID,
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
@@ -21,10 +23,6 @@ function pageInit() {
             	tr.find('.td-path').html(pageList[i].path);
             	tr.appendTo('.page-tbody');
             }
-            
-            $(".add-page").click(function(){
-            	alert("// TODO add page");
-        	});
             
             $("tr").dblclick(function(){
             	document.location.href("step.html?"+$(this).find('td.td-id').html());

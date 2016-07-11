@@ -13,6 +13,8 @@ public class Response extends BaseResponse {
 	
 	private static final long serialVersionUID = 2420907396840866365L;
 	
+	private int result;
+	
 	private List<Page> pageList;
 
 	private List<Field> fieldList;
@@ -25,6 +27,15 @@ public class Response extends BaseResponse {
 	
 	private List<Case> caseList;
 	
+	
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
 	public List<Page> getPageList() {
 		return pageList;
 	}

@@ -29,7 +29,7 @@ public class ValueController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -41,7 +41,7 @@ public class ValueController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -53,19 +53,7 @@ public class ValueController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
-		return pageResponse;
-	}
-	
-	@RequestMapping(value = "/getField", method = RequestMethod.GET)
-	@ResponseBody
-	public PageResponse getAllField(HttpServletRequest request, HttpServletResponse responset) {
-		System.out.println("get all field");
-		PageRequest pageRequest = new PageRequest();
-		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
-		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
-		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 }

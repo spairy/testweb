@@ -23,17 +23,17 @@ public class ResultController {
 
 	@RequestMapping(value = "/getErrors", method = RequestMethod.GET)
 	@ResponseBody
-	public PageResponse getErrorst(HttpServletRequest request, HttpServletResponse responset) {
+	public PageResponse getErrors(HttpServletRequest request, HttpServletResponse responset) {
 		System.out.println("get errors");
 		PageRequest pageRequest = new PageRequest();
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
-	@RequestMapping(value = "/insertPageList", method = RequestMethod.POST)
+	@RequestMapping(value = "/insertError", method = RequestMethod.POST)
 	@ResponseBody
 	public PageResponse insertPageList(HttpServletRequest request, HttpServletResponse responset) {
 		System.out.println("insert page list");
@@ -41,7 +41,7 @@ public class ResultController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -53,19 +53,7 @@ public class ResultController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
-		return pageResponse;
-	}
-	
-	@RequestMapping(value = "/getField", method = RequestMethod.GET)
-	@ResponseBody
-	public PageResponse getAllField(HttpServletRequest request, HttpServletResponse responset) {
-		System.out.println("get all field");
-		PageRequest pageRequest = new PageRequest();
-		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
-		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
-		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 }

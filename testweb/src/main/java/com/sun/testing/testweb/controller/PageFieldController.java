@@ -12,7 +12,7 @@ import com.sun.testing.testweb.business.IBusinessService;
 import com.sun.testing.testweb.common.request.PageRequest;
 import com.sun.testing.testweb.common.response.PageResponse;
 
-@RequestMapping(value = "/page")
+@RequestMapping(value = "/pageField")
 public class PageFieldController {
 
 	private IBusinessService businessService;
@@ -29,7 +29,7 @@ public class PageFieldController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -41,7 +41,7 @@ public class PageFieldController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -53,7 +53,7 @@ public class PageFieldController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 	
@@ -65,7 +65,7 @@ public class PageFieldController {
 		pageRequest.setServiceName(StringUtils.trimWhitespace(request.getParameter("pageName")));
 		pageRequest.setServicePath(StringUtils.trimWhitespace(request.getParameter("pagePath")));
 		PageResponse pageResponse = null;
-		pageResponse = businessService.getPageList(pageRequest);
+		pageResponse = businessService.getPages(pageRequest);
 		return pageResponse;
 	}
 }
